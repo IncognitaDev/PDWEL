@@ -1,0 +1,154 @@
+.center-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.header h1 {
+    text-transform: uppercase;
+}
+
+.content {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+
+    gap: 16px;
+    margin: 32px;
+}
+
+.content .list .search-container {
+    margin: 18px;
+    display: flex;
+    justify-content: space-around;
+}
+
+.content .list .search-container .input-container {
+    display: grid;
+    padding: 20px;
+    gap: 4px;
+    width: 100%;
+}
+
+.content .list .search-container button {
+    width: 40%;
+    height: 32px;
+    margin-top: 43px;
+
+    border: navajowhite;
+    border-radius: .2rem;
+    color: white;
+
+    padding: .4rem 0;
+    font-family: 'Nunito', sans-serif !important;
+    font-size: 1rem;
+
+    background: #4169e1;
+}
+
+.content .list .list-container ul {
+    padding: 20px;
+    list-style-type: none;   
+}
+
+.content .list .list-container ul li {
+    font-size: 1rem;
+    margin-bottom: 10px;
+
+    border: 1px solid black;
+    border-radius: 8px;
+    padding: 12px;
+}
+
+.content .list .list-container ul #title {
+    text-decoration: underline;
+    font-weight: 500;
+    font-size: 1.1rem;
+}
+
+.content .list .list-container ul li ul {
+    list-style-type: initial;
+    padding: 6px 18px;
+}
+
+.content .list .list-container ul li ul li {
+    border: none;
+    padding: 0;
+    margin: 0;
+}
+
+.content .form {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem;
+
+    box-shadow: 0px 3px 15px rgb(0 0 0 / 20%);
+    border-radius: .5rem;
+    margin-left: 2rem;
+
+    height: 300px;
+    background: white;
+}
+
+.content .form .input-container {
+    display: grid;
+    padding: 20px;
+    gap: 4px;
+}
+
+.content .form .input-container + .input-container {
+    padding-top: 0;
+}
+
+.content .list input {
+    width: 100%;
+}
+
+.content .form .buttons-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.content .form .buttons-container button {
+    border: navajowhite;
+    border-radius: .2rem;
+    color: white;
+
+    width: 40%;
+    padding: .4rem 0;
+    font-family: 'Nunito', sans-serif !important;
+    font-size: 1rem;
+    padding: .5rem;
+}
+
+.content .form .buttons-container button:nth-child(1) {
+    background: #f74a67;
+}
+
+.content .form .buttons-container button:nth-child(2) {
+    background: #04BF58;
+}
+
+
+@media(max-width: 800px) {
+
+    .content {
+        display: grid;
+        grid-template-columns: none;
+        grid-template-areas: "form" "list";
+    
+        gap: 16px;
+        margin: 32px;
+    }
+
+    .content .list {
+        grid-area: list;
+    }
+
+    .content .form {
+        grid-area: form;
+        margin-bottom: 40px;
+        margin-left: 0;
+    }
+}
+

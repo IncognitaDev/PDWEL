@@ -1,0 +1,38 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background: #F0F0F5;
+    -webkit-font-smoothing: antialiased;
+}
+
+html, body { 
+    height: 100%; 
+}
+
+
+label, p, li {
+    font: 400 14px/20px Roboto, "Helvetica Neue", sans-serif;
+}
+
+h1 {
+    font-family: 'Archivo', sans-serif;
+    margin: 1rem 0;
+    font-weight: 600;
+    font-size: 1.8rem;
+    
+    border-bottom: 2px solid #2b2d43;
+}
+
+h2 {
+    font-family: 'Archivo', sans-serif;
+    font-weight: 600;
+}
+
+input, select {
+    height: 28px;
+}
+
