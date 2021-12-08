@@ -70,6 +70,7 @@
 
 .content .list .list-container ul li div input {
     width: 3%;
+    width: 20px;
 }
 
 .content .list .list-container ul div #title {
