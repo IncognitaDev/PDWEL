@@ -57,7 +57,11 @@
                 <div class="list-container">
                     <ul>
                         <li>
-                            <p id="title">Compra banana</p>
+                            <div>
+                                <input type="checkbox" id="done" name="done">
+                                <p id="title">Compra banana</p>
+                            </div>
+
                             <ul>
                                 <li>Categoria: Sobrevivência</li>
                                 <li>Cadastrado em 21/02/2021</li>
@@ -65,7 +69,11 @@
                         </li>
 
                         <li>
-                            <p id="title">Abastecer tanque do carro</p>
+                            <div>
+                                <input type="checkbox" id="done" name="done">
+                                <p id="title">Abastecer tanque do carro</p>
+                            </div>
+
                             <ul>
                                 <li>Categoria: Sobrevivência</li>
                                 <li>Cadastrado em 21/02/2021</li>
@@ -73,7 +81,11 @@
                         </li>
                         
                         <li>
-                            <p id="title">Talar metagross no Pokemon Go</p>
+                            <div>
+                                <input type="checkbox" id="done" name="done">
+                                <p id="title">Talar metagross no Pokemon Go</p>
+                            </div>
+
                             <ul>
                                 <li>Categoria: Diversão</li>
                                 <li>Cadastrado em 21/02/2021</li>

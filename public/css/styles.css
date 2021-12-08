@@ -64,7 +64,18 @@
     opacity: 0.8;
 }
 
-.content .list .list-container ul #title {
+.content .list .list-container ul li div {
+    display: flex;
+}
+
+.content .list .list-container ul li div input {
+    width: 3%;
+}
+
+.content .list .list-container ul div #title {
+    margin-left: 10px;
+    margin-top: 4px;
+
     text-decoration: underline;
     font-weight: 500;
     font-size: 1.1rem;
