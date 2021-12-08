@@ -59,6 +59,11 @@
     padding: 12px;
 }
 
+.content .list .list-container ul li:hover {
+    cursor: pointer;
+    opacity: 0.8;
+}
+
 .content .list .list-container ul #title {
     text-decoration: underline;
     font-weight: 500;

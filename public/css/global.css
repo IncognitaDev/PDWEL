@@ -36,3 +36,11 @@ input, select {
     height: 28px;
 }
 
+button {
+    cursor: pointer;
+}
+
+button:hover {
+    opacity: 0.9;
+}
+

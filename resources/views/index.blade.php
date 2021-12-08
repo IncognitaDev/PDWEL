@@ -15,6 +15,9 @@
         <link rel="stylesheet" href='{{ URL::asset("css/global.css") }}'>
         <link rel="stylesheet" href='{{ URL::asset("css/styles.css") }}'>
 
+        <!-- Files in /public/js -->
+        <script src='{{ URL::asset("js/main.js") }}'></script>
+
         <title>Document</title>
     </head>
 
@@ -41,6 +44,7 @@
                     <div class="input-container">
                         <label for="category-search">Categoria</label>
                         <select name="category-search" id="category-search">
+                            <option value="null"></option>
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
@@ -88,12 +92,13 @@
                 <form action="post">
                     <div class="input-container">
                         <label for="description">Descrição</label>
-                        <input type="text" name="" id="">
+                        <input type="text" name="description" id="description">
                     </div>
 
                     <div class="input-container">
                         <label for="category">Categoria</label>
                         <select name="category" id="category">
+                            <option value="null"></option>
                             <option value="1">1</option>
                             <option value="2">2</option>
                             <option value="3">3</option>
@@ -101,7 +106,7 @@
                     </div>
 
                     <div class="buttons-container">
-                        <button>Limpar</button>
+                        <button onclick="cleanFunctions(event)">Limpar</button>
                         <button>Cadastrar</button>
                     </div>
                 </form>
