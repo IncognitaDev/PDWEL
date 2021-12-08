@@ -169,3 +169,8 @@
     }
 }
 
+@media(max-width: 500px) {
+    .content .list .search-container .input-container {
+        padding: 20px 8px;
+    }
+}
