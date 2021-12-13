@@ -31,7 +31,7 @@ function confirmDel(event) {
         ajax.setRequestHeader("X-CSRF-TOKEN", token);
         ajax.onreadystatechange = function () {
             if (ajax.readyState === 4 && ajax.status === 200) {
-                win.location.href = "books";
+                window.location.href = "/";
             }
         };
         ajax.send();

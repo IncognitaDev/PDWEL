@@ -107,8 +107,8 @@ class TodoController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
-    {
-        $del=$this->objBook->destroy($id);
+    {   
+        $del=$this->objTask->destroy($id);
         return($del)?"sim":"não";
     }
 }
