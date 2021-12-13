@@ -24,6 +24,7 @@ class CreateModelTasksTable extends Migration
                 ->onUpdate('cascade');
             $table->string('title');
             $table->string('description');
+            $table->boolean('status');
             $table->timestamps();
         });
     }

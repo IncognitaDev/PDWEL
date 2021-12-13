@@ -10,4 +10,9 @@ class ModelCategory extends Model
     use HasFactory;
 
     protected $table = 'categories';
+
+    public function relTasks()
+    {
+        return $this->hasMany('App\Models\ModelTask', 'id');
+    }
 }

@@ -3,9 +3,20 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Models\ModelTask;
+use App\Models\ModelCategory;
 
 class TodoController extends Controller
 {
+    private $objTask;
+    private $objCategory;
+
+    public function __construct()
+    {
+        $this->objTask = new ModelTask();
+        $this->objCategory = new ModelCategory();
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -13,7 +24,9 @@ class TodoController extends Controller
      */
     public function index()
     {
-        return view('index');
+        $tasks = $this->objTask->all();
+        $categories = $this->objCategory->all();
+        return view('index', compact('tasks', 'categories'));
     }
 
     /**
@@ -23,7 +36,8 @@ class TodoController extends Controller
      */
     public function create()
     {
-        //
+        $tasks=$this->objTask->all();
+        return view('index', compact('tasks'));
     }
 
     /**
@@ -34,7 +48,15 @@ class TodoController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $cad = $this->objTask->create([
+            'title' => "teste",
+            'description' => $request->description,
+            'status' => 0,
+            'id_category' => $request->id_category,
+        ]);
+        if($cad) {
+           return redirect('/');
+        }
     }
 
     /**
@@ -56,7 +78,9 @@ class TodoController extends Controller
      */
     public function edit($id)
     {
-        //
+        $task = $this->objTask->find($id);
+        $category = $this->objCategory->all();
+        return view('index', compact('task', 'category'));
     }
 
     /**
@@ -66,9 +90,14 @@ class TodoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request)
     {
-        //
+        $this->objTask->where(['id' => $request->id])->update([
+            'title' => "",
+            'description' => $request->description,
+            'status' => $request->status,
+            'id_category' => $request->id_category,
+        ]);
     }
 
     /**
@@ -79,6 +108,7 @@ class TodoController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $del=$this->objBook->destroy($id);
+        return($del)?"sim":"não";
     }
 }
