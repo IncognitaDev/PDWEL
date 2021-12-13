@@ -35,11 +35,11 @@
     margin-top: 43px;
 
     border: navajowhite;
-    border-radius: .2rem;
+    border-radius: 0.2rem;
     color: white;
 
-    padding: .4rem 0;
-    font-family: 'Nunito', sans-serif !important;
+    padding: 0.4rem 0;
+    font-family: "Nunito", sans-serif !important;
     font-size: 1rem;
 
     background: #4169e1;
@@ -47,7 +47,7 @@
 
 .content .list .list-container ul {
     padding: 20px;
-    list-style-type: none;   
+    list-style-type: none;
 }
 
 .content .list .list-container ul li {
@@ -99,7 +99,7 @@
     padding: 2rem;
 
     box-shadow: 0px 3px 15px rgb(0 0 0 / 20%);
-    border-radius: .5rem;
+    border-radius: 0.5rem;
     margin-left: 2rem;
 
     height: 300px;
@@ -126,34 +126,38 @@
     justify-content: space-around;
 }
 
-.content .form .buttons-container button {
+.content .form .buttons-container button,
+.js-del,
+.save-btn,
+.edit {
     border: navajowhite;
-    border-radius: .2rem;
+    border-radius: 0.2rem;
     color: white;
 
     width: 40%;
-    padding: .4rem 0;
-    font-family: 'Nunito', sans-serif !important;
+    padding: 0.4rem 0;
+    font-family: "Nunito", sans-serif !important;
     font-size: 1rem;
-    padding: .5rem;
+    padding: 0.5rem;
 }
 
-.content .form .buttons-container button:nth-child(1) {
+.content .form .buttons-container button:nth-child(1),
+.js-del {
     background: #f74a67;
 }
 
-.content .form .buttons-container button:nth-child(2) {
-    background: #04BF58;
+.content .form .buttons-container button:nth-child(2),
+.save-btn,
+.edit {
+    background: #04bf58;
 }
 
-
-@media(max-width: 800px) {
-
+@media (max-width: 800px) {
     .content {
         display: grid;
         grid-template-columns: none;
         grid-template-areas: "form" "list";
-    
+
         gap: 16px;
         margin: 32px;
     }
@@ -169,8 +173,21 @@
     }
 }
 
-@media(max-width: 500px) {
+@media (max-width: 500px) {
     .content .list .search-container .input-container {
         padding: 20px 8px;
     }
+}
+
+.hidden {
+    display: none !important;
+}
+
+#edit #description {
+    width: 100%;
+    margin-left: 15px;
+}
+
+#edit .input-container {
+    width: 80%;
 }

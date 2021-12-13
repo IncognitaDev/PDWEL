@@ -39,24 +39,23 @@
                         @php
                             $category=$task->find($task->id)->relCategory;
                         @endphp
-                        <li>
+                        <li id="id-{{$task->id}}">
                             <form name="edit" id="edit" method="post" action="{{url('/')}}" >
                                 @method('PUT')
                                 @csrf
                             <div>
                                 <input type="hidden" name="id" id="id" value="{{$task->id}}"/>
                                 <input type="hidden" name="status" id="status" value="{{$task->status}}"/>
-                                <input type="checkbox" id="done" name="done" value="{{$task->status}}" />
-                                <p id="title">{{$task->description}}</p>
-                                <div class="input-container">
-                                    <label for="description">Descrição</label>
-                                    <input type="text" name="description" id="description">
+                                <input type="checkbox" name="status" id="status" value="{{$task->status}}" data-id="{{$task->id}}"/>
+                                <p id="title" class="static-field">{{$task->description}}</p>
+                                <div class="input-container hidden">
+                                    <input type="text" name="description" id="description" value="{{$task->description}}"/>
                                 </div>
                             </div>
 
                             <ul>
-                                <li>Categoria: {{$category->title}}</li>
-                                <li class="input-container">
+                                <li class="static-field">Categoria: {{$category->title}}</li>
+                                <li class="input-container hidden">
                                     <label for="category">Categoria</label>
                                     <select name="id_category" id="id_category">
                                         <option value="{{$task->relCategory->id ?? ''}}">{{$task->relCategory->title ?? 'categoria'}}</option>
@@ -68,8 +67,9 @@
 
                                 <li>Cadastrado em 21/02/2021</li>
                             </ul>
+                            <button class="edit" type="button" id="{{$task->id}}">Editar</button>
                             <button class="js-del" id="{{$task->id}}" type="button">Deletar</button>
-                            <button type="submit">Salvar</button>
+                            <button type="submit" class="save-btn hidden">Salvar</button>
                             </form> 
                         </li>
                     @endforeach

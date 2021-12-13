@@ -91,13 +91,16 @@ class TodoController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function update(Request $request)
-    {
+    {   
+
         $this->objTask->where(['id' => $request->id])->update([
             'title' => "",
             'description' => $request->description,
             'status' => $request->status,
             'id_category' => $request->id_category,
         ]);
+        return redirect('/');
+
     }
 
     /**

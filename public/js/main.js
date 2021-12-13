@@ -40,12 +40,58 @@ function confirmDel(event) {
     }
 }
 
+const handleEdit = (event) => {
+    const id = event.target.id;
+
+    const edit = document.querySelector(`#id-${id}`);
+
+    const a = edit.querySelectorAll(".hidden");
+    const d = edit.querySelectorAll(".static-field");
+    const editbtn = edit.querySelector(".edit");
+
+    editbtn.classList.add("hidden");
+
+    a.forEach((b) => {
+        b.classList.remove("hidden");
+    });
+    d.forEach((b) => {
+        b.classList.add("hidden");
+    });
+};
+
+const handleStatusChange = (event) => {
+    const id = event.target["data-id"];
+    let ajax = new XMLHttpRequest();
+    ajax.open("PUT", event.target.id);
+    ajax.setRequestHeader("X-CSRF-TOKEN", token);
+    ajax.onreadystatechange = function () {
+        if (ajax.readyState === 4 && ajax.status === 200) {
+            window.location.href = "/";
+        }
+    };
+    ajax.send();
+};
+
 window.onload = () => {
     if (document.querySelector(".js-del")) {
-        let btn = document.querySelectorAll(".js-del");
+        const btns = document.querySelectorAll(".js-del");
 
-        for (let i = 0; i < btn.length; i++) {
-            btn[i].addEventListener("click", confirmDel, false);
+        btns.forEach((btn) => {
+            btn.addEventListener("click", confirmDel);
+        });
+    }
+    if (document.querySelector(".edit")) {
+        const edit = document.querySelectorAll(".edit");
+
+        for (let i = 0; i < edit.length; i++) {
+            edit[i].addEventListener("click", handleEdit);
+        }
+    }
+    if (document.querySelector("#edit #status")) {
+        const status = document.querySelectorAll("#edit #status");
+
+        for (let i = 0; i < status.length; i++) {
+            status[i].addEventListener("click", handleStatusChange);
         }
     }
 };
