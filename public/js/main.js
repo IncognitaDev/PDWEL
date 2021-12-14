@@ -10,22 +10,6 @@ function confirmDel(event) {
 
     let token = document.getElementsByName("_token")[0].value;
     if (confirm("Deseja mesmo apagar?")) {
-        // fetch(`/${event.target.id}`, {
-        //     method: "POST",
-        //     headers: {
-        //         "X-CSRF-TOKEN": token,
-        //     },
-        //     body: {
-        //         _method: "DELETE",
-        //     },
-        // })
-        //     .then(() => {
-        //         console.log(event.target.id);
-        //         // window.location.reload();
-        //     })
-        //     .catch(() => {
-        //         alert("Não foi possivel excluir");
-        //     });
         let ajax = new XMLHttpRequest();
         ajax.open("DELETE", event.target.id);
         ajax.setRequestHeader("X-CSRF-TOKEN", token);
@@ -59,19 +43,6 @@ const handleEdit = (event) => {
     });
 };
 
-const handleStatusChange = (event) => {
-    const id = event.target["data-id"];
-    let ajax = new XMLHttpRequest();
-    ajax.open("PUT", event.target.id);
-    ajax.setRequestHeader("X-CSRF-TOKEN", token);
-    ajax.onreadystatechange = function () {
-        if (ajax.readyState === 4 && ajax.status === 200) {
-            window.location.href = "/";
-        }
-    };
-    ajax.send();
-};
-
 window.onload = () => {
     if (document.querySelector(".js-del")) {
         const btns = document.querySelectorAll(".js-del");
@@ -91,7 +62,7 @@ window.onload = () => {
         const status = document.querySelectorAll("#edit #status");
 
         for (let i = 0; i < status.length; i++) {
-            status[i].addEventListener("click", handleStatusChange);
+            status[i].addEventListener("change", handleStatusChange);
         }
     }
 };

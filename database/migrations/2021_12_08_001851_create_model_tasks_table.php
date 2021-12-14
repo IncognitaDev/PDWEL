@@ -22,7 +22,6 @@ class CreateModelTasksTable extends Migration
                 ->on('categories')
                 ->onDelete('cascade')
                 ->onUpdate('cascade');
-            $table->string('title');
             $table->string('description');
             $table->boolean('status');
             $table->timestamps();

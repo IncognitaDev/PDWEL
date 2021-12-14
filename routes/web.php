@@ -16,5 +16,5 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', 'App\Http\Controllers\TodoController@index');
 Route::post('/', 'App\Http\Controllers\TodoController@store');
 Route::put('/', 'App\Http\Controllers\TodoController@update');
+Route::put('/{task}', 'App\Http\Controllers\TodoController@update');
 Route::delete('/{task}', 'App\Http\Controllers\TodoController@destroy');
-Route::delete('/', 'App\Http\Controllers\TodoController@destroy');

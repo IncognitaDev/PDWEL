@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use Illuminate\Http\Request;
+use App\Http\Requests\TaskRequest;
 use App\Models\ModelTask;
 use App\Models\ModelCategory;
 
@@ -36,8 +36,6 @@ class TodoController extends Controller
      */
     public function create()
     {
-        $tasks=$this->objTask->all();
-        return view('index', compact('tasks'));
     }
 
     /**
@@ -46,16 +44,17 @@ class TodoController extends Controller
      * @param  \Illuminate\Http\Request  $request
      * @return \Illuminate\Http\Response
      */
-    public function store(Request $request)
+    public function store(TaskRequest $request)
     {
+
+        $status = $request->status ? $request->status : 0;
         $cad = $this->objTask->create([
-            'title' => "teste",
             'description' => $request->description,
-            'status' => 0,
+            'status' => $status,
             'id_category' => $request->id_category,
         ]);
-        if($cad) {
-           return redirect('/');
+        if ($cad) {
+            return redirect('/');
         }
     }
 
@@ -78,9 +77,6 @@ class TodoController extends Controller
      */
     public function edit($id)
     {
-        $task = $this->objTask->find($id);
-        $category = $this->objCategory->all();
-        return view('index', compact('task', 'category'));
     }
 
     /**
@@ -90,18 +86,18 @@ class TodoController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request)
-    {   
-
+    public function update(TaskRequest $request)
+    {
+        $status = $request->status ? $request->status : 0;
         $this->objTask->where(['id' => $request->id])->update([
-            'title' => "",
             'description' => $request->description,
-            'status' => $request->status,
+            'status' => $status,
             'id_category' => $request->id_category,
         ]);
-        return redirect('/');
 
+        return redirect('/');
     }
+
 
     /**
      * Remove the specified resource from storage.
@@ -110,8 +106,8 @@ class TodoController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function destroy($id)
-    {   
-        $del=$this->objTask->destroy($id);
-        return($del)?"sim":"não";
+    {
+        $del = $this->objTask->destroy($id);
+        return ($del) ? "sim" : "não";
     }
 }
