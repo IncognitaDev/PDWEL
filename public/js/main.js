@@ -10,6 +10,22 @@ function confirmDel(event) {
 
     let token = document.getElementsByName("_token")[0].value;
     if (confirm("Deseja mesmo apagar?")) {
+        // fetch(`/${event.target.id}`, {
+        //     method: "POST",
+        //     headers: {
+        //         "X-CSRF-TOKEN": token,
+        //     },
+        //     body: {
+        //         _method: "DELETE",
+        //     },
+        // })
+        //     .then(() => {
+        //         console.log(event.target.id);
+        //         // window.location.reload();
+        //     })
+        //     .catch(() => {
+        //         alert("Não foi possivel excluir");
+        //     });
         let ajax = new XMLHttpRequest();
         ajax.open("DELETE", event.target.id);
         ajax.setRequestHeader("X-CSRF-TOKEN", token);
@@ -41,6 +57,21 @@ const handleEdit = (event) => {
     d.forEach((b) => {
         b.classList.add("hidden");
     });
+};
+
+const handleStatusChange = (event) => {
+    const id = event.target.dataset.id;
+
+    const li = document.querySelector(`#id-${id}`);
+
+    const status = li.querySelector("#status");
+
+    const value = status.value;
+
+    status.value = +!+value;
+    console.log(status.value);
+
+    li.querySelector("form").submit();
 };
 
 window.onload = () => {

@@ -45,8 +45,7 @@
                         @csrf
                         <div>
                             <input type="hidden" name="id" id="id" value="{{$task->id}}" />
-                            <input type="hidden" name="status" id="status" value="{{$task->status}}" />
-                            <input type="checkbox" name="status" id="status" value="{{$task->status}}" data-id="{{$task->id}}" />
+                            <input type="checkbox" name="status" id="status" value="{{$task->status}}" @if($task->status == 1) checked @endif data-id="{{$task->id}}" />
                             <p id="title" class="static-field">{{$task->description}}</p>
                             <div class="input-container hidden">
                                 <input type="text" name="description" id="description" value="{{$task->description}}" required />

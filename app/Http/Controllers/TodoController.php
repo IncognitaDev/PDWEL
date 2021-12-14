@@ -47,10 +47,9 @@ class TodoController extends Controller
     public function store(TaskRequest $request)
     {
 
-        $status = $request->status ? $request->status : 0;
         $cad = $this->objTask->create([
             'description' => $request->description,
-            'status' => $status,
+            'status' => 0,
             'id_category' => $request->id_category,
         ]);
         if ($cad) {
