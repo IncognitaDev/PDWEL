@@ -1,5 +1,9 @@
 # To Do Project
 
+## Integrantes
+- Luiz Vitor Santos de Sousa (SP3026922)
+- Leonardo Naoki Narita (SP3022498)
+
 ## Pré-Requisitos
 
 1. Instalar Composer
